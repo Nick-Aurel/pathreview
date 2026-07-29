@@ -29,20 +29,19 @@ Claimed issue: [#36 — Architecture doc doesn't explain the hybrid retrieval sc
 
 ---
 
-## Week 8
+## Week 8 — Reproduction & solution planning
 
-### What I did
-- Reproduced #36 locally: confirmed `docs/ARCHITECTURE.md` only mentions hybrid retrieval in one sentence and omits the scoring formula, default weights, and example.
-- Cross-checked `HybridRetriever` in `rag/retriever/hybrid.py` (`vector_weight=0.7`, `keyword_weight=0.3`) as the source of truth for the docs fix.
-- Added `PLAN.md` with identification of the change, mapped files, actionable sub-tasks, inputs/outputs, risks/unknowns, and edge cases.
+**Reproduction commit link:** https://github.com/Nick-Aurel/pathreview/commit/0a1c88d8f0942c569fe6ad6ea414dd45088b3b1d
 
-### What I learned
-- For a docs issue, “reproduction” means verifying the gap in the local docs against the real implementation, then recording Expected vs Actual.
-- A specific plan (file names + sub-tasks + edge cases) is what graders score — generic “fix the bug” language does not count.
+**Reproduction summary:**
+Confirmed locally that `docs/ARCHITECTURE.md` only mentions hybrid retrieval in one sentence and omits the scoring formula, default weights, and example. Cross-checked `HybridRetriever` in `rag/retriever/hybrid.py` (`vector_weight=0.7`, `keyword_weight=0.3`) as the source of truth for the docs gap.
 
-### Next up
-- Implement #36: add a hybrid retrieval scoring section + worked example to `docs/ARCHITECTURE.md`.
-- Open a PR once the docs change is ready.
+**PLAN.md link:** https://github.com/Nick-Aurel/pathreview/blob/docs/36-hybrid-retrieval-scoring/PLAN.md
+
+**Walkthrough video (recommended):** _Not recorded (optional / not graded)._
+
+**Blockers or open questions:**
+None going into Week 9 — next step is implementing the hybrid scoring subsection + worked example in `docs/ARCHITECTURE.md`.
 
 ---
 
