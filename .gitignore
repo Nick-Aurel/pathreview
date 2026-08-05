@@ -44,3 +44,9 @@ htmlcov/
 
 # Build artifacts
 *.pyc
+=*
+.chromadb/
+
+# Course / local artifacts (not part of the repo)
+*.pdf
+pathreview/

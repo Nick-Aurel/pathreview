@@ -45,9 +45,35 @@ None going into Week 9 — next step is implementing the hybrid scoring subsecti
 
 ---
 
-## Week 9
+## Week 9 — Solution building & PR submission
 
-_TBD_
+### Check-in 1 (mid-week)
+
+**Current progress:**
+Implemented the hybrid retrieval scoring subsection in `docs/ARCHITECTURE.md` (formula, default weights, normalization, filter/rank steps, and worked example aligned with `HybridRetriever`). Added `tests/unit/test_hybrid_retriever.py` to lock in the documented blend behavior, `min_score` filtering, and single-channel edge cases.
+
+**Next steps:**
+Run `make check` and `make test-unit`, open the PR with a filled template, and complete Check-in 2 with the PR link.
+
+**Blockers:**
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** _TBD — open after push_
+
+**Branch:** `docs/36-hybrid-retrieval-scoring`
+
+**What you built:**
+Documented how `HybridRetriever` normalizes vector and BM25 scores, blends them with default weights (`0.7` / `0.3`), filters by `min_score`, and ranks results — including a numeric example in `docs/ARCHITECTURE.md`. Added unit tests so the architecture description stays aligned with runtime behavior.
+
+**Tests added or updated:**
+`tests/unit/test_hybrid_retriever.py` — default weights, blend formula, `min_score` filtering, single-channel chunks, `max_chunks` cap, and empty-result handling.
+
+**Self-review confirmation:** [ ] make check passes [ ] make test-unit passes
+
+**Draft PR feedback received from:** none
 
 ---
 
