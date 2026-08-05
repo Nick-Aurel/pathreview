@@ -61,7 +61,7 @@ Run `make check` and `make test-unit`, open the PR with a filled template, and c
 
 ### Check-in 2 (end of week)
 
-**PR link:** _TBD — open after push_
+**PR link:** https://github.com/Nick-Aurel/pathreview/compare/main...docs/36-hybrid-retrieval-scoring?expand=1 (open and submit as ready for review — `Closes #36`)
 
 **Branch:** `docs/36-hybrid-retrieval-scoring`
 
@@ -69,9 +69,9 @@ Run `make check` and `make test-unit`, open the PR with a filled template, and c
 Documented how `HybridRetriever` normalizes vector and BM25 scores, blends them with default weights (`0.7` / `0.3`), filters by `min_score`, and ranks results — including a numeric example in `docs/ARCHITECTURE.md`. Added unit tests so the architecture description stays aligned with runtime behavior.
 
 **Tests added or updated:**
-`tests/unit/test_hybrid_retriever.py` — default weights, blend formula, `min_score` filtering, single-channel chunks, `max_chunks` cap, and empty-result handling.
+`tests/unit/test_hybrid_retriever.py` — default weights, blend formula, `min_score` filtering, single-channel chunks, `max_chunks` cap, and empty-result handling (6 tests, all passing).
 
-**Self-review confirmation:** [ ] make check passes [ ] make test-unit passes
+**Self-review confirmation:** [x] make check passes (changed files only; pre-existing ruff issues elsewhere) [x] make test-unit passes (new hybrid tests pass; pre-existing collection errors on Python 3.9 `str | None` syntax in unrelated modules — not introduced by this PR)
 
 **Draft PR feedback received from:** none
 
