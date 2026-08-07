@@ -77,6 +77,33 @@ Documented how `HybridRetriever` normalizes vector and BM25 scores, blends them 
 
 ---
 
-## Week 10
+## Week 10 — Iteration & reflection
 
-_TBD_
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes [x] No — still awaiting review
+
+**Summary of feedback:**
+No reviewer or maintainer comments arrived on the PR. Per the Summer 2026 course note, reviewer feedback is not a provided feature this term, so there was nothing to action beyond documenting that the review is still pending.
+
+**How you responded:**
+N/A — no feedback received.
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+Keeping a “docs-only” change honest against live behavior. `docs/ARCHITECTURE.md` only mentioned hybrid retrieval in one sentence, but writing the scoring section meant carefully reading `HybridRetriever` in `rag/retriever/hybrid.py` so the formula, default weights (`vector_weight=0.7`, `keyword_weight=0.3`), normalization, `min_score` filtering, and ranking matched what the code actually does — not a simplified story. Local `make check` / `make test-unit` also surfaced pre-existing ruff issues and Python 3.9 `str | None` collection errors in unrelated modules; figuring out what was in scope versus noise took more judgment than I expected for a documentation PR.
+
+**What did you learn about working in a large codebase?**
+Contributing to someone else’s production-shaped repo is different from greenfield work: you navigate an existing RAG layout (ingestion → retriever → generator → agent), follow `docs/CONTRIBUTING.md` conventions, and stay scoped so you don’t “fix” adjacent stubs. I also learned process details that don’t show up in a personal project — branch names use the GitHub issue number (`#36`), not the manifest id (`B-16`), and graders need the `/tree/<branch>` URL so they see `JOURNAL.md` on the working branch instead of `main`.
+
+**How did AI tools help — and where did they fall short?**
+AI helped me locate `HybridRetriever`, draft the architecture subsection and worked example, and scaffold unit tests around blend behavior and edge cases. It fell short when defaults or edge cases had to be verified against the real implementation — I still had to read `hybrid.py` myself and write `tests/unit/test_hybrid_retriever.py` so the docs couldn’t drift from runtime behavior. AI also couldn’t decide scope for me when the repo had pre-existing lint/test failures outside my files.
+
+**What would you do differently if you started over?**
+I’d open a formal pull request earlier in Week 9 instead of relying mainly on a compare link, and I’d keep the reproduction commit and `PLAN.md` even tighter so Week 8 → Week 9 handoff was one clear path. I might also record the optional walkthrough — not for points, but to force a clearer explanation of the scoring formula before writing the docs.
+
+**What are you most proud of from this module?**
+Shipping an architecture subsection that documents the real hybrid blend (normalize → weighted sum → filter → rank) and backing it with unit tests so the documentation stays tied to `HybridRetriever` instead of becoming aspirational prose.
